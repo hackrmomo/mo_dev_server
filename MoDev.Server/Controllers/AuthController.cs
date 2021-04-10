@@ -30,7 +30,7 @@ namespace MoDev.Server.Controllers
 
         [HttpPost]
         [Route("login")]
-        public ValidatedAuthResult AddToken([FromQuery] string token, [FromQuery] string password)
+        public ValidatedAuthResult AddToken([FromQuery] string password)
         {
             if (_service.CheckPassword(password))
             {
