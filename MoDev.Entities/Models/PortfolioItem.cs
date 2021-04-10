@@ -1,6 +1,6 @@
 namespace MoDev.Entities
 {
-    class PortfolioItem
+    public class PortfolioItem
     {
         public int Id { get; set; }
         public string ImageUri { get; set; }

@@ -6,9 +6,9 @@ namespace MoDev.Entities
 {
     public class MoDevDbContext : DbContext
     {
-        DbSet<AuthToken> AuthTokens { get; set; }
-        DbSet<Photograph> Photographs { get; set; }
-        DbSet<PortfolioItem> PortfolioItems { get; set; }
+        public DbSet<AuthToken> AuthTokens { get; set; }
+        public DbSet<Photograph> Photographs { get; set; }
+        public DbSet<PortfolioItem> PortfolioItems { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySQL(

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MoDev.Server.Services;
 
 namespace MoDev.Server
 {
@@ -16,6 +17,10 @@ namespace MoDev.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
+            MoDev.Entities.Program.PopulateInitial();
+
+            services.AddTransient<IAuthService, AuthService> ();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

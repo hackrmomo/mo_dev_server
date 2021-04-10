@@ -1,6 +1,6 @@
 namespace MoDev.Entities
 {
-    class Photograph
+    public class Photograph
     {
         public int Id { get; set; }
         public string Iso { get; set; }

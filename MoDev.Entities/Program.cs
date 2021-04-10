@@ -2,14 +2,14 @@
 
 namespace MoDev.Entities
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             PopulateInitial();
         }
 
-        private static void PopulateInitial()
+        public static void PopulateInitial()
         {
             using (var context = new MoDevDbContext())
             {
