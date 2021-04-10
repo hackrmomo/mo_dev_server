@@ -16,7 +16,7 @@ namespace MoDev.Server.Services
         public bool ValidateToken(string token)
         {
             var resolvedToken = GetTokenDetails(token);
-            if (resolvedToken != null && DateTime.UtcNow.AddMonths(1).CompareTo(resolvedToken.TimeStamp) > 0)
+            if (resolvedToken != null && DateTime.UtcNow.CompareTo(resolvedToken.TimeStamp.AddMonths(1)) < 0)
             {
                 return true;
             }
