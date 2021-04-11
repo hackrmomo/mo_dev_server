@@ -45,8 +45,8 @@ namespace MoDev.Server.Services
             {
                 byte[] bytes = Convert.FromBase64String(portfolioImageStr.Split(",")[1]);
                 var stream = new MemoryStream(bytes);
-                var fileName = Guid.NewGuid().ToString() + ".png";
-                var uri = $"{String.Join($"//{_bucketName}.", _spacesEndpoint.Split("//"))}/{fileName}";
+                var fileName = $"web/portfolio/{Guid.NewGuid().ToString()}.png";
+                var uri = $"{String.Join($"://{_bucketName}.", _spacesEndpoint.Split("://"))}/{fileName}";
                 stream.Position = 0;
                 var result = await s3.PutObjectAsync(new Amazon.S3.Model.PutObjectRequest
                 {
@@ -81,7 +81,7 @@ namespace MoDev.Server.Services
             {
                 // entity exists and can be deleted
                 Context.PortfolioItems.Remove(entityToDelete);
-                var fileName = entityToDelete.ImageUri.Split(_bucketName)[1];
+                var fileName = entityToDelete.ImageUri.Split(_bucketName).Last();
                 await s3.DeleteAsync(_bucketName, fileName, null);
 
                 await Context.SaveChangesAsync();
