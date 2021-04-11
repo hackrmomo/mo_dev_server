@@ -20,7 +20,13 @@ namespace MoDev.Server
             services.AddControllers();
             MoDev.Entities.Program.PopulateInitial();
 
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
+
             services.AddTransient<IAuthService, AuthService> ();
+            services.AddTransient<IPortfolioService, PortfolioService> ();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
