@@ -33,6 +33,11 @@ namespace MoDev.Server
 
             app.UseRouting();
 
+            app.UseCors(builder => {
+                builder
+                .WithOrigins(new string [] {"*"});
+            });
+
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllerRoute(
                     name: "default",
