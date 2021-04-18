@@ -42,7 +42,8 @@ namespace MoDev.Server
 
             app.UseCors(builder => {
                 builder
-                .WithOrigins(new string [] {"*"});
+                .WithOrigins(new string [] {"*"})
+                .WithHeaders(new string [] {"*"});
             });
 
             app.UseEndpoints(endpoints => {

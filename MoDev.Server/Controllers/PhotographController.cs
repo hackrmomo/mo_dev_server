@@ -38,7 +38,6 @@ namespace MoDev.Server.Controllers
             }
             HttpContext.Response.StatusCode = 401;
             return new PhotographsList { Photographs = _service.GetPhotographs() };
-
         }
     }
 }
